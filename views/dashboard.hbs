@@ -1,0 +1,47 @@
+<div class="dashboard">
+    <h6>Dashboard</h6>
+    <h2>Welcome, {{name}}</h2>
+    {{#if recipes}}
+        <p>Here are your recipes 😉</p>
+        <table class="striped mg-btm">
+            
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each recipes}}
+                <tr>
+                    <td> <a href="/recipes/{{_id}}"> {{title}} </a> </td>
+                    <td> {{formatDate createdAt 'MM-DD-YYYY, h:mm A'}} </td>
+                    <td>  <span class="dash-status"> {{status}} </span> </td>
+                    <td>
+                        <div class="ctrl-buttons center-align">
+                            <a href="/recipes/edit/{{_id}}" class="btn-floating btn-small teal accent-3">
+                                <i class="fas fa-edit fa-small"></i>
+                            </a>
+                            <form action="/recipes/{{_id}}" method="POST" id="delete-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn-floating btn-small red">
+                                    <i class="fas fa-trash fa-small"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+
+        </table>
+
+    {{else}}
+        <p>No recipes have been created yet 🙃</p>
+    {{/if}}
+
+
+</div>

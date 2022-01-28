@@ -1,0 +1,35 @@
+<div class="section mg-btm">
+    <h1 class="header center teal-text text-accent-3">Access +2,303 recipes</h1>
+    <div class="row center">
+        <h5 class="header col s12 light">The largest database of recipes, we're growing in fact 🤫</h5>
+    </div>
+</div>
+    
+<hr style="border-top: dashed 1px; opacity: 0.2;">
+
+<div class="cards row">
+
+    {{#each recipes}}
+        
+        <div class="card-recipe mg-btm">
+            <h2 class="title">{{title}}</h2>
+            <div class="chip">
+                        <img src="{{user.image}}" alt="">
+                        <a href="/recipes/user/{{user._id}}">{{user.displayName}}</a>
+            </div>
+            <div class="content">
+                <p>
+                    {{ stripTags (truncate body 250)}}
+                </p>
+            </div>
+            <div class="card-action">
+                <a href="/recipes/{{_id}}" class="btn grey">Read More</a>
+            </div>
+        </div>
+        <hr style="opacity: 0.2;">
+    {{else}}
+         <p>No Recipes To Display 🙃</p>
+    {{/each}}
+    
+</div>
+

@@ -1,0 +1,23 @@
+<div class="mg-btm">
+    <h2 class="title">
+        {{recipe.title}}
+        <small>{{{editIcon recipe.user user recipe._id false}}}</small>
+    </h2>
+    <span style="font-size: 1.5rem;">{{formatDate date 'MM-DD-YYYY, h:mm A'}}</span>
+    <div class="card-content">
+        {{{recipe.body}}}
+    </div>
+    <br>
+    <div>
+        <p style="font-size: 1.8rem;">Author :</p>
+        <div class="valign-wrapper">
+            <img src="{{recipe.user.image}}"  class="circle responsive-img profile-img">
+            <br>
+            <h3 style="padding: 0 0 10px 20px; font-size: 2rem;">
+                <a href="/recipes/user/{{recipe.user._id}}" class="teal-text text-accent-3 ">{{recipe.user.displayName}}</a>
+            </h3>
+        </div>
+        
+    </div>
+    <br><br>
+</div>

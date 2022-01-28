@@ -1,0 +1,27 @@
+<div class="mg-btm">
+    <br><br>
+    <div class="user-info center-align">
+        <img src="{{_user.image}}" class="circle responsive-img profile-img">
+        <h4 class="">{{_user.displayName}}</h4>
+    </div>
+    <br>
+    <hr style="border-top: dashed 1px; opacity: 0.2;">
+
+    <div class="cards row">
+        {{#each recipes}}
+            <div class="card-recipe mg-btm">
+                <h2 class="title">{{title}}</h2>
+                <div class="content">
+                    <p>
+                        {{ stripTags (truncate body 250)}}
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="/recipes/{{_id}}" class="btn grey">Read More</a>
+                </div>
+            </div>
+            <hr style="opacity: 0.2; margin-top: 20px;">
+        {{/each}}
+    </div>
+
+</div>
